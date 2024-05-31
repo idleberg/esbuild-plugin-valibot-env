@@ -6,7 +6,7 @@ import logSymbols from 'log-symbols';
 import type { Plugin } from 'esbuild';
 
 type PluginOptions = {
-    envFile?: string;
+	envFile?: string;
 };
 
 /**
@@ -29,41 +29,41 @@ type PluginOptions = {
  * await build({
  * 	entryPoints: ['demo.ts'],
  * 	plugins: [
- * 		ValibotEnvPlugin(schema)
+ * 		valibot(schema),
  * 	],
  * });
  * ```
  */
 export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = ObjectSchema<any, any>>(
-    schema: T,
-    options: PluginOptions = {
-        envFile: undefined
-    }
+	schema: T,
+	options: PluginOptions = {
+		envFile: undefined,
+	},
 ): Plugin {
 	return {
-    name: 'valibot-env',
-    setup() {
-        dotenv.config({
-            path: options.envFile
-        });
+		name: 'valibot-env',
+		setup() {
+			dotenv.config({
+				path: options.envFile,
+			});
 
-        const { issues, success } = safeParse(schema, env);
+			const { issues, success } = safeParse(schema, env);
 
-        if (success) {
-            return;
-        }
+			if (success) {
+				return;
+			}
 
-        for (const issue of issues) {
-            if (typeof issue === 'undefined') {
-                continue;
-            }
+			for (const issue of issues) {
+				if (typeof issue === 'undefined') {
+					continue;
+				}
 
-            logIssue(issue);
-        }
+				logIssue(issue);
+			}
 
-        exit(1);
-    }
-	}
+			exit(1);
+		},
+	};
 }
 
 /**

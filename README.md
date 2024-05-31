@@ -33,7 +33,7 @@ const envSchema = v.object({
 await build({
 	entryPoints: ['demo.ts'],
 	plugins: [
-		valibot(schema)
+		valibot(schema),
 	],
 });
 ```
