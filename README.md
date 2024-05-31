@@ -53,7 +53,7 @@ Specify a path to an `.env` file. It will be passed to the `dotenv` package.
 
 ## Related
 
-- [vite-plugin-valibot-env](https://www.npmjs.org/package/vite-plugin-valibot-env)
+- [vite-plugin-valibot-env](hhttps://github.com/idleberg/vite-plugin-valibot-env)
 
 ## License
 
