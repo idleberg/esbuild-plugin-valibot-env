@@ -7,6 +7,7 @@ import type { Plugin } from 'esbuild';
 
 type PluginOptions = {
 	envFile?: string;
+	transformValues?: boolean;
 };
 
 /**
@@ -38,6 +39,7 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 	schema: T,
 	options: PluginOptions = {
 		envFile: undefined,
+		transformValues: false,
 	},
 ): Plugin {
 	return {
@@ -47,7 +49,8 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 				path: options.envFile,
 			});
 
-			const { issues, success } = safeParse(schema, env);
+			const envVars = options.transformValues ? transformEnvironment(env as Record<string, string>) : env;
+			const { issues, success } = safeParse(schema, envVars);
 
 			if (success) {
 				return;
@@ -79,4 +82,40 @@ function logIssue(issue: SchemaIssue) {
 	const label = bgRed(` ${issue.path[0].key} `);
 
 	console.error(logSymbols.error, label, issue.message);
+}
+
+/**
+ * Transforms values of an environment variables object to their respective types.
+ * @param env
+ * @returns
+ */
+function transformEnvironment(env: Record<string, string>): Record<string, unknown> {
+	return Object.fromEntries(
+		Object.entries(env).map(([key, value]) => {
+			return [key, transformString(value)];
+		}),
+	);
+}
+
+/**
+ * Transforms a string to its respective primitive type.
+ * @param value
+ * @returns
+ */
+function transformString(value: string): unknown {
+	switch (true) {
+		case value === 'null':
+		case value === 'true':
+		case value === 'false':
+			return JSON.parse(value);
+
+		case /^-?\d+$/.test(value):
+			return parseInt(value, 10);
+
+		case /^-?\d+\.\d+$/.test(value):
+			return parseFloat(value);
+
+		default:
+			return value;
+	}
 }

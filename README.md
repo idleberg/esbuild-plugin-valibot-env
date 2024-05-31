@@ -51,6 +51,13 @@ Default: `".env"`
 
 Specify a path to an `.env` file. It will be passed to the `dotenv` package.
 
+#### `options.transformValues`
+
+Type: `Boolean`  
+Default: `false`  
+
+Setting this to `true` will try and transform string values to their respective types. Supports booleans, integers, floats, and `null`.
+
 ## Related
 
 - [vite-plugin-valibot-env](https://github.com/idleberg/vite-plugin-valibot-env)
