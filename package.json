@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/node": "^18.19.33",
     "esbuild": "^0.21.4",
-    "eslint": "^9.3.0",
+    "eslint": "^9.4.0",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-unicorn": "^53.0.0",
     "husky": "^9.0.11",
