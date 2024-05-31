@@ -1,0 +1,6 @@
+/dist
+
+# wip
+fixtures/.env.invalid
+fxitures/invalid.schema.ts
+invalid.spec.ts
