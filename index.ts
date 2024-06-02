@@ -1,5 +1,5 @@
 import { bgRed } from 'kleur/colors';
-import { env, exit } from 'node:process';
+import { env } from 'node:process';
 import { safeParse, type ObjectSchema, type SchemaIssue } from 'valibot';
 import dotenv from 'dotenv';
 import logSymbols from 'log-symbols';
@@ -56,15 +56,20 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 				return;
 			}
 
+			let issueCount = 0;
+
 			for (const issue of issues) {
 				if (typeof issue === 'undefined') {
 					continue;
 				}
 
+				issueCount++;
 				logIssue(issue);
 			}
 
-			exit(1);
+			throw new TypeError(
+				`Environment variable validation failed, found ${issueCount} ${issueCount === 1 ? 'issue' : 'issues'}.`,
+			);
 		},
 	};
 }
