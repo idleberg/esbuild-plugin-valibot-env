@@ -1,6 +1,6 @@
 import { bgRed } from 'kleur/colors';
 import { env, exit } from 'node:process';
-import { safeParse, type ObjectSchema, type SchemaIssue } from 'valibot';
+import { safeParse, type InferIssue, type ObjectSchema } from 'valibot';
 import dotenv from 'dotenv';
 import logSymbols from 'log-symbols';
 import type { Plugin } from 'esbuild';
@@ -74,7 +74,7 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
  * @param issue
  * @returns
  */
-function logIssue(issue: SchemaIssue) {
+function logIssue(issue: InferIssue<any>) {
 	if (!issue.path) {
 		return;
 	}
