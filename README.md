@@ -26,7 +26,7 @@ import * as v from 'valibot';
 import valibot from 'esbuild-plugin-valibot-env';
 
 const envSchema = v.object({
-	ESBUILD_API_ENDPOINT: v.pipe([v.string(), v.url()]),
+	ESBUILD_API_ENDPOINT: v.pipe(v.string(), v.url()),
 	ESBUILD_LOCALE: v.literal('en_US'),
 });
 
