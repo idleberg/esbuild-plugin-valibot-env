@@ -1,5 +1,5 @@
 import { env } from 'node:process';
-import { safeParse, type ObjectSchema } from 'valibot';
+import { safeParse, type InferIssue, type ObjectSchema } from 'valibot';
 import { type Plugin } from 'esbuild';
 import dotenv from 'dotenv';
 
@@ -54,7 +54,7 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 				return {
 					errors: success
 						? undefined
-						: issues?.map((issue) => {
+						: issues?.map((issue: InferIssue<any>) => {
 								return {
 									id: args.path,
 									pluginName: 'valibot-env',
