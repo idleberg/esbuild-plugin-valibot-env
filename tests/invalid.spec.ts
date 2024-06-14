@@ -71,7 +71,6 @@ Object.entries(invalidEnvironmentVariables).forEach(([key, type]) => {
 				],
 			});
 		} catch (error) {
-			console.log(error.message);
 			assert.instance(error, Error);
 			assert.match((error as Error).message, `[${key}] Invalid type`);
 		}
