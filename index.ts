@@ -1,9 +1,7 @@
-import { bgRed } from 'kleur/colors';
 import { env } from 'node:process';
-import { safeParse, type ObjectSchema, type SchemaIssue } from 'valibot';
+import { safeParse, type ObjectSchema } from 'valibot';
+import { type Plugin } from 'esbuild';
 import dotenv from 'dotenv';
-import logSymbols from 'log-symbols';
-import type { Plugin } from 'esbuild';
 
 type PluginOptions = {
 	envFile?: string;
@@ -23,8 +21,8 @@ type PluginOptions = {
  * import valibot from 'esbuild-plugin-valibot-env';
  *
  * const envSchema = v.object({
- * 	ESBUILD_API_ENDPOINT: v.string([v.url()]),
- * 	ESBUILD_ENABLE_LOGGING: v.boolean(),
+ * 	ESBUILD_API_ENDPOINT: v.pipe(v.string(), v.url()),
+ * 	ESBUILD_LOCALE: v.literal('en_US'),
  * });
  *
  * await build({
@@ -44,7 +42,7 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 ): Plugin {
 	return {
 		name: 'valibot-env',
-		setup() {
+		setup({ onLoad }) {
 			dotenv.config({
 				path: options.envFile,
 			});
@@ -52,41 +50,22 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 			const envVars = options.transformValues ? transformEnvironment(env as Record<string, string>) : env;
 			const { issues, success } = safeParse(schema, envVars);
 
-			if (success) {
-				return;
-			}
-
-			let issueCount = 0;
-
-			for (const issue of issues) {
-				if (typeof issue === 'undefined') {
-					continue;
-				}
-
-				issueCount++;
-				logIssue(issue);
-			}
-
-			throw new Error(
-				`Environment variable validation failed, found ${issueCount} ${issueCount === 1 ? 'issue' : 'issues'}.`,
-			);
+			onLoad({ filter: /\.*/ }, (args) => {
+				return {
+					errors: success
+						? undefined
+						: issues?.map((issue) => {
+								return {
+									id: args.path,
+									pluginName: 'valibot-env',
+									detail: issue.path[0].key,
+									text: `[${issue.path[0].key}] ${issue.message}`,
+								};
+							}),
+				};
+			});
 		},
 	};
-}
-
-/**
- * Logger for printing well-formed schema issues.
- * @param issue
- * @returns
- */
-function logIssue(issue: SchemaIssue) {
-	if (!issue.path) {
-		return;
-	}
-
-	const label = bgRed(` ${issue.path[0].key} `);
-
-	console.error(logSymbols.error, label, issue.message);
 }
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-valibot-env",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "An Esbuild plugin to validate environment variables against a Valibot schema",
   "license": "MIT",
   "author": "Jan T. Sott",
@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
+    "dev": "npm run build -- --watch",
     "lint:code": "eslint **/*.json **/*.ts --no-warn-ignored",
     "lint:deps": "knip --production",
     "lint": "npm-run-all --parallel lint:*",
@@ -36,9 +36,7 @@
     "test": "uvu tests --require tsm --ignore \"fixtures\""
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "kleur": "^4.1.5",
-    "log-symbols": "^6.0.0"
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@types/node": "^18.19.33",
@@ -57,10 +55,10 @@
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.11.0",
     "uvu": "^0.5.6",
-    "valibot": "0.30"
+    "valibot": "^0.31.0"
   },
   "peerDependencies": {
-    "valibot": "^0.30.0"
+    "valibot": "^0.31.0"
   },
   "lint-staged": {
     "*.ts": [
