@@ -67,7 +67,7 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 				logIssue(issue);
 			}
 
-			throw new TypeError(
+			throw new Error(
 				`Environment variable validation failed, found ${issueCount} ${issueCount === 1 ? 'issue' : 'issues'}.`,
 			);
 		},
