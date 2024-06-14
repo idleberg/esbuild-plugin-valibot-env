@@ -20,6 +20,8 @@ test(`Testing valid environment variables`, async () => {
 		});
 	} catch (error) {
 		const count = Object.keys(schema.entries).length;
+		assert.instance(error, Error);
+
 		assert.match(
 			(error as Error).message,
 			`Environment variable validation failed, found ${count} ${count === 1 ? 'issue' : 'issues'}.`,
