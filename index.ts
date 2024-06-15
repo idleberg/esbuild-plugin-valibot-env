@@ -50,18 +50,27 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 			const envVars = options.transformValues ? transformEnvironment(env as Record<string, string>) : env;
 			const { issues, success } = safeParse(schema, envVars);
 
+			if (success) {
+				return;
+			}
+
+			let counter = 0;
+
 			onLoad({ filter: /\.*/ }, (args) => {
+				counter++;
+
 				return {
-					errors: success
-						? undefined
-						: issues?.map((issue: InferIssue<any>) => {
-								return {
-									id: args.path,
-									pluginName: 'valibot-env',
-									detail: issue.path[0].key,
-									text: `[${issue.path[0].key}] ${issue.message}`,
-								};
-							}),
+					errors:
+						counter > 1
+							? undefined
+							: issues?.map((issue: InferIssue<any>) => {
+									return {
+										id: args.path,
+										pluginName: 'valibot-env',
+										detail: issue.path[0].key,
+										text: `[${issue.path[0].key}] ${issue.message}`,
+									};
+								}),
 				};
 			});
 		},
