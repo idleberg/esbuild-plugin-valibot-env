@@ -40,25 +40,26 @@
   },
   "devDependencies": {
     "@types/node": "^18.19.33",
-    "esbuild": "^0.21.5",
-    "eslint": "^9.5.0",
+    "esbuild": "^0.23.0",
+    "eslint": "^9.8.0",
     "eslint-plugin-jsonc": "^2.16.0",
-    "eslint-plugin-unicorn": "^54.0.0",
-    "husky": "^9.0.11",
-    "knip": "^5.19.0",
-    "lint-staged": "^15.2.7",
-    "np": "^10.0.5",
-    "npm-run-all2": "^6.2.0",
-    "prettier": "^3.3.2",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "husky": "^9.1.4",
+    "knip": "^5.27.0",
+    "lint-staged": "^15.2.8",
+    "np": "^10.0.7",
+    "npm-run-all2": "^6.2.2",
+    "prettier": "^3.3.3",
     "tsm": "^2.3.0",
-    "tsup": "^8.1.0",
-    "typescript": "^5.4.5",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
     "typescript-eslint": "^7.13.0",
     "uvu": "^0.5.6",
-    "valibot": "^0.36.0"
+    "valibot": "^0.37.0"
   },
   "peerDependencies": {
-    "valibot": "^0.31 || ^0.32 || ^0.33 | ^0.34 || ^0.35 || ^0.36"
+		"esbuild": ">=0.20 <0.24",
+    "valibot": ">=0.30 <0.38"
   },
   "lint-staged": {
     "*.ts": [
