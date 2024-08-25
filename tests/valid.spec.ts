@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { schema } from './fixtures/valid.schema';
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
-import valibot from '../index';
+import valibot from '../src/index';
 
 test(`Testing valid environment variables`, async () => {
 	await build({

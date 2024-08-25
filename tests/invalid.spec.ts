@@ -3,7 +3,7 @@ import { cwd } from 'node:process';
 import { resolve } from 'node:path';
 import { suite } from 'uvu';
 import * as assert from 'uvu/assert';
-import valibot from '../index';
+import valibot from '../src/index';
 import * as v from 'valibot';
 
 const invalidEnvironmentVariables = {
