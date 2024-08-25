@@ -41,11 +41,11 @@
   "devDependencies": {
     "@types/node": "^18.19.44",
     "esbuild": "^0.23.1",
-    "eslint": "^9.9.0",
+    "eslint": "^9.9.1",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-unicorn": "^55.0.0",
-    "husky": "^9.1.4",
-    "knip": "^5.27.2",
+    "husky": "^9.1.5",
+    "knip": "^5.27.3",
     "lint-staged": "^15.2.9",
     "np": "^10.0.7",
     "npm-run-all2": "^6.2.2",
@@ -53,13 +53,13 @@
     "tsm": "^2.3.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.1.0",
+    "typescript-eslint": "^8.2.0",
     "uvu": "^0.5.6",
-    "valibot": "^0.38.0"
+    "valibot": "^0.39.0"
   },
   "peerDependencies": {
     "esbuild": ">=0.20 <0.24",
-    "valibot": ">=0.30 <0.39"
+    "valibot": ">=0.30 <0.40"
   },
   "lint-staged": {
     "*.ts": [
