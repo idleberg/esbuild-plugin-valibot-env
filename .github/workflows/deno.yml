@@ -40,7 +40,7 @@ jobs:
         path: |
           ~/.deno
           ~/.cache/deno
-        key: ${{ runner.os }}-deno-${{ hashFiles('**/jsr.json') }}
+        key: ${{ runner.os }}-deno-${{ hashFiles('**/pnpm-lock.yaml') }}
 
     - name: Lint Source
       run: deno lint --rules-exclude=no-explicit-any --ignore=node_modules **/*.ts
