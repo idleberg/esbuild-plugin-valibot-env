@@ -1,5 +1,9 @@
-node_modules/
+# Distribution
+bun.lockb
 dist/
+node_modules/
+
+# Caches
 .eslintcache
 
 # Development
