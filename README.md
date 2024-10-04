@@ -51,6 +51,13 @@ Default: `".env"`
 
 Specify a path to an `.env` file. It will be passed to the `dotenv` package.
 
+#### `options.language`
+
+Type: `string`  
+Default: `undefined`  
+
+Language ID for localized error messages.
+
 #### `options.transformValues`
 
 Type: `Boolean`  

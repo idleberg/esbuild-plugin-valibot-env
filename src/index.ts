@@ -4,7 +4,20 @@ import { type Plugin } from 'esbuild';
 import dotenv from 'dotenv';
 
 type PluginOptions = {
+	/**
+	 * Specify a path to an `.env` file. It will be passed to the `dotenv` package.
+	 */
 	envFile?: string;
+
+	/**
+	 * Language ID for localized error messages. Requires `@valibot/i18n`.
+	 */
+	language?: string;
+
+	/**
+	 * While all environment variable values are actually of type `string`, this setting allows transforming
+	 * booleans, integers, floats, and null to their respective type.
+	 */
 	transformValues?: boolean;
 };
 
@@ -48,7 +61,15 @@ export default function ValibotEnvPlugin<T extends ObjectSchema<any, any> = Obje
 			});
 
 			const envVars = options.transformValues ? transformEnvironment(env as Record<string, string>) : env;
-			const { issues, success } = safeParse(schema, envVars);
+
+			const parserConfig =
+				typeof options.language !== 'string'
+					? undefined
+					: {
+							lang: options.language,
+						};
+
+			const { issues, success } = safeParse(schema, envVars, parserConfig);
 
 			if (success) {
 				return;
