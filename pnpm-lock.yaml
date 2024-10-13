@@ -61,8 +61,8 @@ importers:
         specifier: ^0.5.6
         version: 0.5.6
       valibot:
-        specifier: ^1.0.0-beta.0
-        version: 1.0.0-beta.0(typescript@5.6.2)
+        specifier: ^1.0.0-beta.1
+        version: 1.0.0-beta.1(typescript@5.6.2)
 
 packages:
 
@@ -2625,8 +2625,8 @@ packages:
     engines: {node: '>=8'}
     hasBin: true
 
-  valibot@1.0.0-beta.0:
-    resolution: {integrity: sha512-Q/oine+NPMXdIy3vwluw0vidHLk0mTPUQBRHc+EHZXnEWF3KzLx1YLsVHPVrgHaMGRfV58P9eGOgxJvi0a059w==}
+  valibot@1.0.0-beta.1:
+    resolution: {integrity: sha512-lQGnVdicMX/G+gicL2aYZcqhn5brXmjx6UvB5wfPcoM0IOk8tzbrP/TQc6hSs156fTeklVd07+fnlirRgT2Tig==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -5119,7 +5119,7 @@ snapshots:
       kleur: 4.1.5
       sade: 1.8.1
 
-  valibot@1.0.0-beta.0(typescript@5.6.2):
+  valibot@1.0.0-beta.1(typescript@5.6.2):
     optionalDependencies:
       typescript: 5.6.2
 
