@@ -1,7 +1,7 @@
+import dotenv from 'dotenv';
+import { type Plugin } from 'esbuild';
 import { env } from 'node:process';
 import { safeParse, type InferIssue, type ObjectSchema } from 'valibot';
-import { type Plugin } from 'esbuild';
-import dotenv from 'dotenv';
 
 type PluginOptions = {
 	/**
