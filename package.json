@@ -39,28 +39,28 @@
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "@types/node": "^22.8.6",
-    "concurrently": "^9.0.1",
+    "@types/node": "^22.9.1",
+    "concurrently": "^9.1.0",
     "esbuild": "^0.24.0",
-    "eslint": "^9.14.0",
-    "eslint-plugin-jsonc": "^2.16.0",
+    "eslint": "^9.15.0",
+    "eslint-plugin-jsonc": "^2.18.2",
     "eslint-plugin-perfectionist": "^4.0.3",
-    "eslint-plugin-unicorn": "^56.0.0",
-    "husky": "^9.1.6",
-    "knip": "^5.36.1",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "husky": "^9.1.7",
+    "knip": "^5.37.1",
     "lint-staged": "^15.2.10",
     "np": "^10.0.7",
     "prettier": "^3.3.3",
     "tsm": "^2.3.0",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.12.2",
+    "typescript-eslint": "^8.15.0",
     "uvu": "^0.5.6",
-    "valibot": "1.0.0-beta.3"
+    "valibot": "1.0.0-beta.8"
   },
   "peerDependencies": {
-    "esbuild": ">=0.20 <0.24",
-    "valibot": ">=0.30 <0.43 || 1.0.0-beta.0 || 1.0.0-beta.1 || 1.0.0-beta.2 || 1.0.0-beta.3"
+    "esbuild": ">=0.20 <=0.24",
+    "valibot": ">=0.30 <=0.42 || >=1.0.0-beta.0 <=1.0.0-beta.8"
   },
   "lint-staged": {
     "*.ts": [
