@@ -1,6 +1,6 @@
 {
 	"name": "@idleberg/esbuild-plugin-valibot-env",
-	"version": "0.5.4",
+	"version": "0.6.0",
 	"exports": "./src/index.ts",
 	"publish": {
 		"include": [
