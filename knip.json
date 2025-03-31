@@ -2,5 +2,9 @@
 	"ignore": [
 		".husky/**",
 		"tests/**"
+	],
+	"ignoreBinaries": [
+		"eslint",
+		"prettier"
 	]
 }
