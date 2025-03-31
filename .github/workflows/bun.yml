@@ -33,7 +33,7 @@ jobs:
     - uses: oven-sh/setup-bun@8f24390df009a496891208e5e36b8a1de1f45135 # v1.2.1
 
     - uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
-      name: Set up Deno cache
+      name: Set up Bun cache
       with:
         path: |
           ~/.bun/install/cache
