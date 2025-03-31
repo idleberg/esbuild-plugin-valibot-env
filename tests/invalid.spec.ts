@@ -1,6 +1,6 @@
 import { build } from 'esbuild';
 import { resolve } from 'node:path';
-import { cwd } from 'node:process';
+import { cwd, env } from 'node:process';
 import { suite } from 'uvu';
 import * as assert from 'uvu/assert';
 import * as v from 'valibot';
@@ -55,14 +55,13 @@ const test = suite();
 
 Object.entries(invalidEnvironmentVariables).forEach(([key, type]) => {
 	test(`Testing invalid environment variable ${key}`, async () => {
+		env[key] = type;
+
 		try {
 			await build({
 				bundle: true,
 				entryPoints: [resolve(cwd(), 'tests/fixtures/app.ts')],
 				outdir: 'dist',
-				define: {
-					[key]: JSON.stringify(type),
-				},
 				plugins: [
 					valibot(
 						v.object({
@@ -71,9 +70,11 @@ Object.entries(invalidEnvironmentVariables).forEach(([key, type]) => {
 					),
 				],
 			});
+
+			assert.unreachable('should have thrown');
 		} catch (error) {
 			assert.instance(error, Error);
-			assert.match((error as Error).message, `[${key}] Invalid type`);
+			assert.match((error as Error).message, `Invalid type: Expected undefined but received "${type}"`);
 		}
 	});
 });
