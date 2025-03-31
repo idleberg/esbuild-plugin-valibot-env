@@ -39,6 +39,9 @@
     "dotenv": "^16.4.7"
   },
   "devDependencies": {
+		"@commitlint/cli": "^19.8.0",
+		"@commitlint/config-conventional": "^19.8.0",
+		"@total-typescript/tsconfig": "^1.0.4",
     "@types/node": "^22.13.14",
     "concurrently": "^9.1.2",
     "esbuild": "^0.25.2",
