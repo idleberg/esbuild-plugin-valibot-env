@@ -1,10 +1,11 @@
 import { build } from 'esbuild';
-import { cwd } from 'node:process';
 import { resolve } from 'node:path';
+import { cwd } from 'node:process';
 import { suite } from 'uvu';
 import * as assert from 'uvu/assert';
-import valibot from '../src/index';
 import * as v from 'valibot';
+
+import valibot from '../src/index';
 
 const invalidEnvironmentVariables = {
 	PLUGIN_TEST__INVALID_BIC: 'BIC',

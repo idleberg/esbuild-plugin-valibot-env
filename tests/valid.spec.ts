@@ -1,10 +1,11 @@
 import { build } from 'esbuild';
-import { cwd } from 'node:process';
 import { resolve } from 'node:path';
-import { schema } from './fixtures/valid.schema';
+import { cwd } from 'node:process';
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
+
 import valibot from '../src/index';
+import { schema } from './fixtures/valid.schema';
 
 test(`Testing valid environment variables`, async () => {
 	await build({
