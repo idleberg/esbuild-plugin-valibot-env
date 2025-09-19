@@ -24,52 +24,38 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch --onSuccess \"tsup --dts-only \"",
-    "lint:code": "eslint **/*.json ./src/**/*.ts --no-warn-ignored",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint:code": "biome check",
     "lint:deps": "knip --production",
     "lint": "concurrently --prefix '{name}' -c 'blue,green' 'npm:lint:*'",
     "prepack": "npm run build",
-    "prepare": "husky",
+    "prepare": "lefthook install",
     "publish:jsr": "deno publish",
     "publish:npm": "np --no-yarn --any-branch",
     "test": "uvu tests --require tsm --ignore \"fixtures\""
   },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^17.2.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@total-typescript/tsconfig": "^1.0.4",
-    "@types/node": "^22.13.14",
-    "concurrently": "^9.1.2",
-    "esbuild": "^0.25.2",
-    "eslint": "^9.23.0",
-    "eslint-plugin-jsonc": "^2.20.0",
-    "eslint-plugin-perfectionist": "^4.10.1",
-    "eslint-plugin-unicorn": "^58.0.0",
-    "husky": "^9.1.7",
-    "knip": "^5.46.4",
-    "lint-staged": "^15.5.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@idleberg/configs": "^0.3.1",
+    "@types/node": "^24.5.2",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.25.10",
+    "knip": "^5.63.1",
     "np": "^10.2.0",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "tsm": "^2.3.0",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.28.0",
+    "typescript": "^5.9.2",
     "uvu": "^0.5.6",
-    "valibot": "1.0.0"
+    "valibot": "1.1.0"
   },
   "peerDependencies": {
     "esbuild": ">=0.20 <=0.26",
     "valibot": "^1.0.0"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --cache --fix",
-      "prettier --cache --write"
-    ]
   },
   "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }
