@@ -42,6 +42,12 @@ jobs:
             ~/.cache/deno
           key: ${{ runner.os }}-deno-${{ hashFiles('**/pnpm-lock.yaml') }}
 
+      - name: Install uvu
+        run: |
+          deno cache npm:uvu \
+          --allow-scripts \
+          --node-modules-dir=auto
+
       - name: Lint Source
         run: deno lint --rules-exclude=no-explicit-any --ignore=node_modules **/*.ts
 
