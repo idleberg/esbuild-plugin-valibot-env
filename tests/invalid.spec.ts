@@ -5,7 +5,7 @@ import { suite } from 'uvu';
 import * as assert from 'uvu/assert';
 import * as v from 'valibot';
 
-import valibot from '../src/index';
+import valibot from '../src/plugin.ts';
 
 const invalidEnvironmentVariables = {
 	PLUGIN_TEST__INVALID_BIC: 'BIC',

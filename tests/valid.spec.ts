@@ -4,8 +4,8 @@ import { build } from 'esbuild';
 import { test } from 'uvu';
 import * as assert from 'uvu/assert';
 
-import valibot from '../src/index';
-import { schema } from './fixtures/valid.schema';
+import valibot from '../src/plugin.ts';
+import { schema } from './fixtures/valid.schema.ts';
 
 test('Testing valid environment variables', async () => {
 	await build({
