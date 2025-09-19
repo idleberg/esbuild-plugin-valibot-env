@@ -1,61 +1,61 @@
 {
-  "name": "esbuild-plugin-valibot-env",
-  "version": "0.6.0",
-  "description": "An Esbuild plugin to validate environment variables against a Valibot schema",
-  "license": "MIT",
-  "author": "Jan T. Sott",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/idleberg/esbuild-plugin-valibot-env"
-  },
-  "keywords": [
-    "esbuild-plugin",
-    "valibot"
-  ],
-  "type": "module",
-  "exports": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "engines": {
-    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
-  },
-  "files": [
-    "dist/",
-    "LICENSE",
-    "README.md"
-  ],
-  "scripts": {
-    "build": "tsdown",
-    "dev": "tsdown --watch",
-    "lint:code": "biome check",
-    "lint:deps": "knip --production",
-    "lint": "concurrently --prefix '{name}' -c 'blue,green' 'npm:lint:*'",
-    "prepack": "npm run build",
-    "prepare": "lefthook install",
-    "publish:jsr": "deno publish",
-    "publish:npm": "np --no-yarn --any-branch",
-    "test": "uvu tests --require tsm --ignore \"fixtures\""
-  },
-  "dependencies": {
-    "dotenv": "^17.2.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@idleberg/configs": "^0.3.1",
-    "@types/node": "^24.5.2",
-    "concurrently": "^9.2.1",
-    "esbuild": "^0.25.10",
-    "knip": "^5.63.1",
-    "np": "^10.2.0",
-    "prettier": "^3.6.2",
-    "tsm": "^2.3.0",
-    "typescript": "^5.9.2",
-    "uvu": "^0.5.6",
-    "valibot": "1.1.0"
-  },
-  "peerDependencies": {
-    "esbuild": ">=0.20 <=0.26",
-    "valibot": "^1.0.0"
-  },
-  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
+	"name": "esbuild-plugin-valibot-env",
+	"version": "0.6.0",
+	"description": "An Esbuild plugin to validate environment variables against a Valibot schema",
+	"license": "MIT",
+	"author": "Jan T. Sott",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/idleberg/esbuild-plugin-valibot-env"
+	},
+	"keywords": [
+		"esbuild-plugin",
+		"valibot"
+	],
+	"type": "module",
+	"exports": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"engines": {
+		"node": "^18.0.0 || ^20.0.0 || >=22.0.0"
+	},
+	"files": [
+		"dist/",
+		"LICENSE",
+		"README.md"
+	],
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch",
+		"lint:code": "biome check",
+		"lint:deps": "knip --production",
+		"lint": "concurrently --prefix '{name}' -c 'blue,green' 'npm:lint:*'",
+		"prepack": "npm run build",
+		"prepare": "lefthook install",
+		"publish:jsr": "deno publish",
+		"publish:npm": "np --no-yarn --any-branch",
+		"test": "uvu tests --require tsm --ignore \"fixtures\""
+	},
+	"dependencies": {
+		"dotenv": "^17.2.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^19.8.1",
+		"@idleberg/configs": "^0.3.1",
+		"@types/node": "^24.5.2",
+		"concurrently": "^9.2.1",
+		"esbuild": "^0.25.10",
+		"knip": "^5.63.1",
+		"np": "^10.2.0",
+		"prettier": "^3.6.2",
+		"tsm": "^2.3.0",
+		"typescript": "^5.9.2",
+		"uvu": "^0.5.6",
+		"valibot": "1.1.0"
+	},
+	"peerDependencies": {
+		"esbuild": ">=0.20 <=0.26",
+		"valibot": "^1.0.0"
+	},
+	"packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }

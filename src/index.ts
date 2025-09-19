@@ -1,7 +1,7 @@
-import dotenv from 'dotenv';
-import { type Plugin } from 'esbuild';
 import { env } from 'node:process';
-import { safeParse, type InferIssue, type ObjectSchema } from 'valibot';
+import dotenv from 'dotenv';
+import type { Plugin } from 'esbuild';
+import { type InferIssue, type ObjectSchema, safeParse } from 'valibot';
 
 type PluginOptions = {
 	/**
@@ -124,10 +124,10 @@ function transformString(value: string): unknown {
 			return JSON.parse(value);
 
 		case /^-?\d+$/.test(value):
-			return parseInt(value, 10);
+			return Number.parseInt(value, 10);
 
 		case /^-?\d+\.\d+$/.test(value):
-			return parseFloat(value);
+			return Number.parseFloat(value);
 
 		default:
 			return value;

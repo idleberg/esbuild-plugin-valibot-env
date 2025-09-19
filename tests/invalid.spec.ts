@@ -1,6 +1,6 @@
-import { build } from 'esbuild';
 import { resolve } from 'node:path';
 import { cwd, env } from 'node:process';
+import { build } from 'esbuild';
 import { suite } from 'uvu';
 import * as assert from 'uvu/assert';
 import * as v from 'valibot';

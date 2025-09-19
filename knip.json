@@ -1,10 +1,4 @@
 {
-	"ignore": [
-		".husky/**",
-		"tests/**"
-	],
-	"ignoreBinaries": [
-		"eslint",
-		"prettier"
-	]
+	"ignore": [".husky/**", "tests/**"],
+	"ignoreBinaries": ["eslint", "prettier"]
 }
