@@ -33,7 +33,8 @@ jobs:
         run: |
           deno install \
           --allow-scripts \
-          --node-modules-dir=auto
+          --node-modules-dir=auto \
+          --no-lock
 
       - run: |
           deno lint \
