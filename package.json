@@ -1,6 +1,6 @@
 {
 	"name": "esbuild-plugin-valibot-env",
-	"version": "0.6.0",
+	"version": "0.6.1",
 	"description": "An Esbuild plugin to validate environment variables against a Valibot schema",
 	"license": "MIT",
 	"author": "Jan T. Sott",
